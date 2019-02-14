@@ -8,12 +8,14 @@ namespace PadawansTask2
         {
             if (count <= 0)
                 throw new ArgumentException();
-            int sum = number;
+            long sum = number;
             for (int i = 1; i < count; i++)
             {
                 int newElem = number + i * add;
                 sum += newElem;
             }
+            if (sum > Int32.MaxValue)
+                throw new OverflowException();
 
             return sum;
         }
